@@ -1,25 +1,25 @@
 
-.EventSearch div .FormLine .row {
+.ServiceSearch div .FormLine .row {
 	padding: 3px 0px !important;
 }
 
-.EventSearch-taxonomy-link-container {
+.ServiceSearch-taxonomy-link-container {
 	padding: 3px 0px 0px 0px;
 	text-align: center;
 }
 
-.EventSearch-taxonomy-link {
+.ServiceSearch-taxonomy-link {
 	cursor: pointer;
 	color: #009fe3 !important;
 	width: 100%;
 	text-align: center;
 }
 
-.EventSearch-tree-taxonomy {
+.ServiceSearch-tree-taxonomy {
 	margin: 10px 0px;
 }
 
-.EventSearch-img {
+.ServiceSearch-img {
 	display: block;
     margin-left: auto;
     margin-right: auto;

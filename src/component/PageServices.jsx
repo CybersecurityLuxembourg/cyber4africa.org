@@ -1,18 +1,18 @@
 import React from "react";
-import "./PageNews.css";
+import "./PageServices.css";
 import { NotificationManager as nm } from "react-notifications";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import Loading from "./box/Loading.jsx";
 import { getRequest } from "../utils/request.jsx";
-import ArticleHorizontal from "./item/ArticleHorizontal.jsx";
+import ServiceHorizontal from "./item/ServiceHorizontal.jsx";
 import Message from "./box/Message.jsx";
 import { getUrlParameter, dictToURI } from "../utils/url.jsx";
-import ArticleSearch from "./form/ArticleSearch.jsx";
+import ServiceSearch from "./form/ServiceSearch.jsx";
 import DynamicTable from "./table/DynamicTable.jsx";
 import { getSettingValue } from "../utils/setting.jsx";
 
-export default class PageNews extends React.Component {
+export default class PageServices extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -20,12 +20,11 @@ export default class PageNews extends React.Component {
 			articles: null,
 			newsCompanies: null,
 			filters: {
-				type: "NEWS",
+				type: "SERVICE",
 				title: null,
 				include_tags: "true",
 				per_page: 20,
 				page: getUrlParameter("page") !== null ? parseInt(getUrlParameter("page"), 10) : 1,
-				member_news_only: getUrlParameter("member_news_only") === "true",
 			},
 		};
 	}
@@ -44,46 +43,13 @@ export default class PageNews extends React.Component {
 		let params = {
 			...this.state.filters,
 			page: Number.isInteger(page) ? page : this.state.filters.page,
-			is_created_by_admin: this.state.filters.member_news_only
-				? false : undefined,
 		};
 
-		delete params.member_news_only;
 		params = dictToURI(params);
-
-		const urlParams = dictToURI({
-			taxonomy_values: this.state.filters.taxonomy_values,
-			page: Number.isInteger(page) ? page : this.state.filters.page,
-			member_news_only: this.state.filters.member_news_only ? true : undefined,
-		});
-
-		// eslint-disable-next-line no-restricted-globals
-		history.replaceState(null, null, "?" + urlParams);
 
 		getRequest.call(this, "public/get_public_articles?" + params, (data) => {
 			this.setState({
 				articles: data,
-			}, () => {
-				const params2 = {
-					ids: Array.prototype.concat.apply(
-						[],
-						data.items
-							.filter((i) => i.company_tags)
-							.map((i) => i.company_tags),
-					),
-				};
-
-				if (params2.ids.length > 0) {
-					getRequest.call(this, "public/get_public_companies?" + dictToURI(params2), (data2) => {
-						this.setState({
-							newsCompanies: data2,
-						});
-					}, (response) => {
-						nm.warning(response.statusText);
-					}, (error) => {
-						nm.error(error.message);
-					});
-				}
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -114,14 +80,14 @@ export default class PageNews extends React.Component {
 									<Link to="/">{getSettingValue(this.props.settings, "PROJECT_NAME")}</Link>
 								</Breadcrumb.Item>
 							}
-							<Breadcrumb.Item><Link to="/news">News</Link></Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/services">Services</Link></Breadcrumb.Item>
 						</Breadcrumb>
 					</div>
 				</div>
 
 				<div className="row row-spaced">
 					<div className="col-md-12">
-						<ArticleSearch
+						<ServiceSearch
 							analytics={this.props.analytics}
 							filters={this.state.filters}
 							onChange={() => this.modifyFilters()}
@@ -149,7 +115,7 @@ export default class PageNews extends React.Component {
 						pagination={this.state.articles.pagination}
 						changePage={(page) => this.getArticles(page)}
 						buildElement={(a) => <div className="col-md-12">
-							<ArticleHorizontal
+							<ServiceHorizontal
 								info={a}
 								analytics={this.props.analytics}
 								companies={this.state.newsCompanies}

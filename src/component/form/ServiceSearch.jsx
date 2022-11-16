@@ -1,8 +1,8 @@
 import React from "react";
-import "./EventSearch.css";
+import "./ServiceSearch.css";
 import FormLine from "./FormLine.jsx";
 
-export default class EventSearch extends React.Component {
+export default class ServiceSearch extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -12,7 +12,7 @@ export default class EventSearch extends React.Component {
 
 	render() {
 		return (
-			<div className={"EventSearch row"}>
+			<div className={"ServiceSearch row"}>
 				<div className={"col-md-12"}>
 					<FormLine
 						label={"Title"}
