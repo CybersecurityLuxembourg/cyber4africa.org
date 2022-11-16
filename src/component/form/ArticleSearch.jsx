@@ -15,7 +15,7 @@ export default class ArticleSearch extends React.Component {
 			<div className={"ArticleSearch row"}>
 				<div className={"col-md-12"}>
 					<FormLine
-						label={"Topic"}
+						label={"Title"}
 						value={this.props.filters.title === undefined
 							? [] : this.props.filters.title}
 						onChange={(v) => this.props.onChange("title", v)}

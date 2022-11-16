@@ -9,6 +9,7 @@ import PageHome from "./PageHome.jsx";
 import PageEcosystem from "./PageEcosystem.jsx";
 import PageNews from "./PageNews.jsx";
 import PageJobs from "./PageJobs.jsx";
+import PageServices from "./PageServices.jsx";
 import PageEvents from "./PageEvents.jsx";
 import PageArticle from "./PageArticle.jsx";
 import PageEvent from "./PageEvent.jsx";
@@ -54,6 +55,9 @@ export default class InsideApp extends React.Component {
 						<Route path="/event/:handle" render={(props) => <PageEvent
 							{...props} settings={this.state.settings}
 						/>}/>
+						<Route path="/service/:handle" render={(props) => <PageEvent
+							{...props} settings={this.state.settings}
+						/>}/>
 						<Route path="/job/:handle" render={(props) => <PageJob
 							{...props} settings={this.state.settings}
 						/>}/>
@@ -68,6 +72,9 @@ export default class InsideApp extends React.Component {
 							{...props} settings={this.state.settings}
 						/>}/>
 						<Route path="/events" render={(props) => <PageEvents
+							{...props} settings={this.state.settings}
+						/>}/>
+						<Route path="/services" render={(props) => <PageServices
 							{...props} settings={this.state.settings}
 						/>}/>
 						<Route path="/jobs" render={(props) => <PageJobs
