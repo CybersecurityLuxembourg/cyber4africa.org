@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import { getRequest } from "../utils/request.jsx";
 import { getApiURL } from "../utils/env.jsx";
 import Loading from "./box/Loading.jsx";
-import Chip from "./form/Chip.jsx";
 import { getContentFromBlock } from "../utils/article.jsx";
 import { getSettingValue } from "../utils/setting.jsx";
 
@@ -62,9 +61,9 @@ export default class PageService extends React.Component {
 									<Link to="/">{getSettingValue(this.props.settings, "PROJECT_NAME")}</Link>
 								</Breadcrumb.Item>
 							}
-							<Breadcrumb.Item><Link to="/events">Events</Link></Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/services">Services</Link></Breadcrumb.Item>
 							{this.state.article !== null && !this.state.loading
-								? <Breadcrumb.Item><Link to={"/calendar/" + this.props.match.params.handle}>{this.state.article.title}</Link></Breadcrumb.Item>
+								? <Breadcrumb.Item><Link to={"/service/" + this.props.match.params.handle}>{this.state.article.title}</Link></Breadcrumb.Item>
 								: ""}
 						</Breadcrumb>
 					</div>
@@ -87,7 +86,7 @@ export default class PageService extends React.Component {
 
 								{this.state.article.abstract !== null
 									&& <div
-										className="PageArticle-abstract"
+										className="PageService-abstract"
 										dangerouslySetInnerHTML={{
 											__html:
 											dompurify.sanitize(this.state.article.abstract),
@@ -102,27 +101,6 @@ export default class PageService extends React.Component {
 									}
 									return null;
 								})}
-
-								<div className="PageArticle-tags">
-									{this.state.article.taxonomy_tags.map((t) => (
-										<Chip
-											key={t.name}
-											label={t.name}
-											url={"/search?taxonomy_value=" + t.id}
-										/>
-									))}
-								</div>
-
-								<div className="PageArticle-companies">
-									{this.state.article.company_tags.map((t) => (
-										<Chip
-											key={t.name}
-											label={t.name}
-											color={"#ffa8b0"}
-											url={"/company/" + t.id}
-										/>
-									))}
-								</div>
 							</article>
 						</div>
 					</div>
