@@ -1,26 +1,26 @@
 
-.ServiceveHorizontal {
+.ServiceHorizontal {
     margin: 5px 0px !important;
     padding-bottom: 50px;
     overflow: hidden;
     line-height: 1 !important;
 }
 
-.ServiceveHorizontal-link {
+.ServiceHorizontal-link {
     color: inherit;
 }
 
-.ServiceveHorizontal-link:hover {
+.ServiceHorizontal-link:hover {
     color: initial !important;
     text-decoration: none;
 }
 
-.ServiceveHorizontal:hover {
+.ServiceHorizontal:hover {
     background-color: #f2fbff;
 }
 
 @media (min-width: 500px) {
-    .ServiceveHorizontal .card-horizontal {
+    .ServiceHorizontal .card-horizontal {
         height: 100%;
         display: flex;
         flex: 1 1 auto;
@@ -28,14 +28,14 @@
 }
 
 @media (min-width: 0px) {
-    .ServiceveHorizontal .img-square-wrapper {
+    .ServiceHorizontal .img-square-wrapper {
         width: 100%;
         height: 130px;
     }
 }
 
 @media (min-width: 500px) {
-    .ServiceveHorizontal .img-square-wrapper {
+    .ServiceHorizontal .img-square-wrapper {
         object-fit: cover;
         display: flex;
         margin: auto;
@@ -44,14 +44,14 @@
     }
 }
 
-.ServiceveHorizontal .img-square-wrapper img {
+.ServiceHorizontal .img-square-wrapper img {
     object-fit: cover;
     width: 100%;
     height: 100%;
     border-radius: unset !important;
 }
 
-.ServiceveHorizontal .card-date {
+.ServiceHorizontal .card-date {
     position: absolute;
     background: #109E92;
     text-align: center;
@@ -62,18 +62,18 @@
     text-transform: uppercase;
 }
 
-.ServiceveHorizontal .card-body {
+.ServiceHorizontal .card-body {
     padding: .9rem 1rem !important;
 }
 
 @media (min-width: 0px) {
-    .ServiceveHorizontal .card-body button {
+    .ServiceHorizontal .card-body button {
         display: none;
     }
 }
 
 @media (min-width: 500px) {
-    .ServiceveHorizontal .card-body button {
+    .ServiceHorizontal .card-body button {
         display: block;
         position: absolute;
         bottom: 10px;
@@ -81,7 +81,7 @@
     }
 }
 
-.ServiceveHorizontal .card-body h5 {
+.ServiceHorizontal .card-body h5 {
     font-weight: bold !important;
     margin-bottom: 5px !important;
     max-width: 100%;
@@ -93,13 +93,13 @@
 }
 
 @media (min-width: 0px) {
-    .ServiceveHorizontal .card-body button {
+    .ServiceHorizontal .card-body button {
         display: none;
     }
 }
 
 @media (min-width: 500px) {
-    .ServiceveHorizontal .card-body button {
+    .ServiceHorizontal .card-body button {
         display: block;
         position: absolute;
         bottom: 10px;
@@ -107,13 +107,13 @@
     }
 }
 
-.ServiceveHorizontal .card-tags {
+.ServiceHorizontal .card-tags {
     height: 30px;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.ServiceveHorizontal .card-text {
+.ServiceHorizontal .card-text {
     padding: 5px 1rem 5px 1rem;
     text-align: justify;
 }

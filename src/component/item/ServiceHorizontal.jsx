@@ -4,14 +4,10 @@ import dompurify from "dompurify";
 import { Link } from "react-router-dom";
 import NoImage from "../box/NoImage.jsx";
 import { getApiURL } from "../../utils/env.jsx";
-import { dateToString } from "../../utils/date.jsx";
 
 export default class ServiceHorizontal extends Component {
 	constructor(props) {
 		super(props);
-
-		this.getBoxContent = this.getBoxContent.bind(this);
-		this.getTagsContent = this.getTagsContent.bind(this);
 
 		this.state = {
 		};
@@ -43,7 +39,7 @@ export default class ServiceHorizontal extends Component {
 	getBoxContent() {
 		return (
 			<div className="ServiceHorizontal card">
-				<div className="service-horizontal">
+				<div className="card-horizontal">
 					<div className="img-square-wrapper">
 						{this.getImage()
 							? <img
@@ -52,14 +48,9 @@ export default class ServiceHorizontal extends Component {
 								alt="Service image"/>
 							: <NoImage/>
 						}
-						<div className="card-date">
-							{dateToString(this.props.info.publication_date, "DD MMM YYYY")}
-						</div>
 					</div>
 					<div className="card-body">
 						<h5 className="card-title">{this.props.info.title}</h5>
-
-						{this.getTagsContent()}
 
 						<button
 							className={"blue-background"}
@@ -91,7 +82,7 @@ export default class ServiceHorizontal extends Component {
 				className="ServiceHorizontal-link">
 				{this.getBoxContent()}
 			</a>
-			: <Link to={"/services/" + this.props.info.handle} className="ServiceHorizontal-link">
+			: <Link to={"/service/" + this.props.info.handle} className="ServiceHorizontal-link">
 				{this.getBoxContent()}
 			</Link>;
 	}
