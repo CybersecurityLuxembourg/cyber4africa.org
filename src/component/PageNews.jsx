@@ -74,7 +74,7 @@ export default class PageNews extends React.Component {
 				};
 
 				if (params2.ids.length > 0) {
-					getRequest.call(this, "public/get_public_companies?" + dictToURI(params2), (data2) => {
+					getRequest.call(this, "public/get_public_entities?" + dictToURI(params2), (data2) => {
 						this.setState({
 							newsCompanies: data2,
 						});

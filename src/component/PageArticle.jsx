@@ -66,7 +66,7 @@ export default class PageArticle extends React.Component {
 						};
 
 						if (params2.ids.length > 0) {
-							getRequest.call(this, "public/get_public_companies?" + dictToURI(params2), (data3) => {
+							getRequest.call(this, "public/get_public_entities?" + dictToURI(params2), (data3) => {
 								this.setState({
 									relatedArticleCompanies: data3,
 								});

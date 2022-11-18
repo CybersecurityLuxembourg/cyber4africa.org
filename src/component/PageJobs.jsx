@@ -70,7 +70,7 @@ export default class PageJobs extends React.Component {
 					ids: companyIds,
 				});
 
-				getRequest.call(this, "public/get_public_companies?" + params2, (data2) => {
+				getRequest.call(this, "public/get_public_entities?" + params2, (data2) => {
 					this.setState({
 						companies: data2,
 					});

@@ -36,7 +36,7 @@ export default class PageEcosystem extends React.Component {
 		this.setState({
 			companies: null,
 		}, () => {
-			getRequest.call(this, "public/get_public_companies?"
+			getRequest.call(this, "public/get_public_entities?"
 				+ dictToURI(this.state.filters), (data) => {
 				this.setState({
 					companies: data.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1)),
