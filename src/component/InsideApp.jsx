@@ -10,6 +10,7 @@ import PageEcosystem from "./PageEcosystem.jsx";
 import PageNews from "./PageNews.jsx";
 import PageJobs from "./PageJobs.jsx";
 import PageServices from "./PageServices.jsx";
+import PageService from "./PageService.jsx";
 import PageEvents from "./PageEvents.jsx";
 import PageArticle from "./PageArticle.jsx";
 import PageEvent from "./PageEvent.jsx";
@@ -55,7 +56,7 @@ export default class InsideApp extends React.Component {
 						<Route path="/event/:handle" render={(props) => <PageEvent
 							{...props} settings={this.state.settings}
 						/>}/>
-						<Route path="/service/:handle" render={(props) => <PageEvent
+						<Route path="/service/:handle" render={(props) => <PageService
 							{...props} settings={this.state.settings}
 						/>}/>
 						<Route path="/job/:handle" render={(props) => <PageJob
