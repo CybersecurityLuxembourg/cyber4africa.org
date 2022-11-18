@@ -5,7 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import SearchField from "../form/SearchField.jsx";
 import { getSettingValue } from "../../utils/setting.jsx";
-import { getApiURL } from "../../utils/env.jsx";
+import { getApiURL, getCommunityAppURL } from "../../utils/env.jsx";
 
 export default class Menu extends React.Component {
 	constructor(props) {
@@ -97,7 +97,7 @@ export default class Menu extends React.Component {
 							</Nav.Link>
 							<a
 								className="nav-link"
-								href={"e"}
+								href={getCommunityAppURL()}
 								rel="noreferrer"
 							>
 								<div className="Menu-title">
