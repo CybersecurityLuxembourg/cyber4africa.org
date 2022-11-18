@@ -29,7 +29,8 @@ h3 {
 h4 {
 }
 
-a {
+a:hover {
+	color: #109E92 !important;
 }
 
 /* PAGE */
