@@ -29,6 +29,10 @@ h3 {
 h4 {
 }
 
+a {
+	color: #109E92 !important;
+}
+
 a:hover {
 	color: #109E92 !important;
 }
