@@ -1,6 +1,6 @@
 
 .rbc-event {
-	background-color: #009fe3 !important;
+	background-color: #109E92 !important;
 }
 
 .rbc-time-slot {
@@ -8,7 +8,7 @@
 }
 
 .rbc-current-time-indicator {
-	background-color: #e40613 !important;
+	background-color: #109E92 !important;
 }
 
 .rbc-off-range-bg {
@@ -28,7 +28,7 @@
 	margin-bottom:  25px;
 	padding: 25px;
 	background-color: rgba(188, 235, 255, 0.2) !important;
-	color: #009fe3 !important;
+	color: #109E92 !important;
 	text-align: center;
 	cursor: pointer;
   	justify-content: center;
@@ -76,5 +76,5 @@
 }
 
 .PageCalendar-blue-block a:hover {
-  	color: #009fe3 !important;
+  	color: #109E92 !important;
 }

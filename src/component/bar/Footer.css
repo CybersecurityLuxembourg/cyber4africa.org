@@ -45,7 +45,7 @@
   font-size: 20px;
   padding: 5px 8px;
   text-align: center;
-  color: #009fe3;
+  color: #109E92;
   margin-bottom: 5px;
 }
 
@@ -57,7 +57,7 @@
 
 
 .Footer-network a i:hover {
-  color: #e40613 !important;
+  color: #109E92 !important;
 }
 
 .Footer-documentation-and-terms a {

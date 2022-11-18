@@ -51,7 +51,7 @@ export default class PageHome extends React.Component {
 
 	getEvents() {
 		const params = {
-			type: "NEWS",
+			type: "EVENT",
 			include_tags: "true",
 			per_page: 3,
 			page: 1,
@@ -70,7 +70,7 @@ export default class PageHome extends React.Component {
 
 	getJobs() {
 		const params = {
-			type: "NEWS",
+			type: "JOB OFFER",
 			include_tags: "true",
 			per_page: 3,
 			page: 1,

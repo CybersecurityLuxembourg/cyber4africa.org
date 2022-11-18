@@ -12,11 +12,11 @@
 }
 
 .FormLine-wrong-format {
-	border: 2px solid #e40613 !important;
+	border: 2px solid #109E92 !important;
 }
 
 .FormLine-wrong-format:focus {
-	border: 3px solid #e40613 !important;
+	border: 3px solid #109E92 !important;
 }
 
 .FormLine-right-format {

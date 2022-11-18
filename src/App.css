@@ -109,11 +109,11 @@ button {
 	text-decoration:none;
 	font-family:'Roboto',sans-serif;
 	font-weight:300;
-	color:#FFFFFF;
+	color: #FFFFFF;
 	text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
 	text-align:center;
 	transition: all 0.2s;
-	background-color: #009fe3;
+	background-color: #109E92;
 	opacity: .5;
 }
 
@@ -189,13 +189,13 @@ input::placeholder, textarea::placeholder, select::placeholder {
 }
 
 input:focus, textarea:focus, select:focus {
-	border: 1px solid #009fe3;
+	border: 1px solid #109E92;
 }
 
 /* NOTIFICATION */
 
 .notification-info {
-  background-color: #009fe3 !important;
+  background-color: #109E92 !important;
 }
 
 .notification-success {
