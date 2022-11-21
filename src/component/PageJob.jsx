@@ -167,7 +167,7 @@ export default class PageJob extends React.Component {
 								</div>
 
 								<div className="PageJob-companies">
-									{this.state.article.company_tags.map((t) => (
+									{this.state.article.entity_tags.map((t) => (
 										<Chip
 											key={t.name}
 											label={t.name}
@@ -210,7 +210,7 @@ export default class PageJob extends React.Component {
 								</div>
 
 								<div className="PageJob-companies">
-									{this.state.article.company_tags.map((t) => (
+									{this.state.article.entity_tags.map((t) => (
 										<Chip
 											key={t.name}
 											label={t.name}

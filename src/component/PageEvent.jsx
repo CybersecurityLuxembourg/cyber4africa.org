@@ -100,7 +100,7 @@ export default class PageEvent extends React.Component {
 								</div>
 
 								<div className="PageArticle-companies">
-									{this.state.article.company_tags.map((t) => (
+									{this.state.article.entity_tags.map((t) => (
 										<Chip
 											key={t.name}
 											label={t.name}
@@ -143,7 +143,7 @@ export default class PageEvent extends React.Component {
 								</div>
 
 								<div className="PageArticle-companies">
-									{this.state.article.company_tags.map((t) => (
+									{this.state.article.entity_tags.map((t) => (
 										<Chip
 											key={t.name}
 											label={t.name}

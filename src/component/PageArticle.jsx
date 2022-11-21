@@ -60,8 +60,8 @@ export default class PageArticle extends React.Component {
 							ids: Array.prototype.concat.apply(
 								[],
 								data2
-									.filter((i) => i.company_tags)
-									.map((i) => i.company_tags),
+									.filter((i) => i.entity_tags)
+									.map((i) => i.entity_tags),
 							),
 						};
 
@@ -193,7 +193,7 @@ export default class PageArticle extends React.Component {
 								</div>
 
 								<div className="PageArticle-companies">
-									{this.state.article.company_tags.map((t) => (
+									{this.state.article.entity_tags.map((t) => (
 										<Chip
 											key={t.name}
 											label={t.name}
@@ -236,7 +236,7 @@ export default class PageArticle extends React.Component {
 								</div>
 
 								<div className="PageArticle-companies">
-									{this.state.article.company_tags.map((t) => (
+									{this.state.article.entity_tags.map((t) => (
 										<Chip
 											key={t.name}
 											label={t.name}

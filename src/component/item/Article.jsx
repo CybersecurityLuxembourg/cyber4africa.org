@@ -21,11 +21,11 @@ export default class Article extends Component {
 		}
 
 		if (!this.props.info.is_created_by_admin
-			&& this.props.info.company_tags
-			&& this.props.info.company_tags.length > 0
+			&& this.props.info.entity_tags
+			&& this.props.info.entity_tags.length > 0
 			&& this.props.companies) {
 			const companies = this.props.companies
-				.filter((c) => this.props.info.company_tags.indexOf(c.id) >= 0)
+				.filter((c) => this.props.info.entity_tags.indexOf(c.id) >= 0)
 				.filter((c) => c.image);
 
 			if (companies.length > 0) {

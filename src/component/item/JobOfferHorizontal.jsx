@@ -40,10 +40,10 @@ export default class JobOfferHorizontal extends Component {
 	}
 
 	getTagsContent() {
-		if (this.props.info.company_tags
+		if (this.props.info.entity_tags
 			&& this.props.companies) {
 			return <div className="card-tags">
-				{this.props.info.company_tags
+				{this.props.info.entity_tags
 					.filter((c) => this.props.companies.filter((d) => d.id === c).length > 0)
 					.map((v) => <Chip
 						key={this.props.companies.filter((d) => d.id === v)[0].name}

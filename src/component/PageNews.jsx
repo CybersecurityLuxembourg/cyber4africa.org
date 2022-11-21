@@ -68,8 +68,8 @@ export default class PageNews extends React.Component {
 					ids: Array.prototype.concat.apply(
 						[],
 						data.items
-							.filter((i) => i.company_tags)
-							.map((i) => i.company_tags),
+							.filter((i) => i.entity_tags)
+							.map((i) => i.entity_tags),
 					),
 				};
 
