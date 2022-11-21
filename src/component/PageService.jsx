@@ -16,7 +16,6 @@ export default class PageService extends React.Component {
 
 		this.state = {
 			article: null,
-			articleLoading: false,
 		};
 	}
 
@@ -27,13 +26,11 @@ export default class PageService extends React.Component {
 	getArticleContent() {
 		this.setState({
 			article: null,
-			articleLoading: false,
 		});
 
 		getRequest.call(this, "public/get_public_article_content/" + this.props.match.params.handle, (data) => {
 			this.setState({
 				article: data,
-				articleLoading: false,
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -68,7 +65,6 @@ export default class PageService extends React.Component {
 				</div>
 
 				{this.state.article !== null && this.state.article.content !== undefined
-					&& !this.state.articleLoading
 					? <div className="row row-spaced">
 						<div className="col-md-12">
 							<article>
