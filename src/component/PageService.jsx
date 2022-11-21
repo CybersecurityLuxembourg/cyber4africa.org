@@ -36,10 +36,8 @@ export default class PageService extends React.Component {
 				articleLoading: false,
 			});
 		}, (response) => {
-			this.setState({ loading: false });
 			nm.warning(response.statusText);
 		}, (error) => {
-			this.setState({ loading: false });
 			nm.error(error.message);
 		});
 	}
@@ -62,7 +60,7 @@ export default class PageService extends React.Component {
 								</Breadcrumb.Item>
 							}
 							<Breadcrumb.Item><Link to="/services">Services</Link></Breadcrumb.Item>
-							{this.state.article !== null && !this.state.loading
+							{this.state.article !== null
 								? <Breadcrumb.Item><Link to={"/service/" + this.props.match.params.handle}>{this.state.article.title}</Link></Breadcrumb.Item>
 								: ""}
 						</Breadcrumb>
