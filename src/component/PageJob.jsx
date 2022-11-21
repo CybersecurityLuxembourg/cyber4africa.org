@@ -46,7 +46,7 @@ export default class PageJob extends React.Component {
 			});
 
 			if (data.type === "NEWS") {
-				getRequest.call(this, "public/get_related_articles/" + this.props.match.params.handle, (data2) => {
+				getRequest.call(this, "public/get_public_related_articles/" + this.props.match.params.handle, (data2) => {
 					this.setState({
 						relatedArticles: data2,
 						relatedArticleLoading: false,
