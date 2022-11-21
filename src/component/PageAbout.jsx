@@ -1,17 +1,48 @@
 import React from "react";
 import "./PageAbout.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
+import { NotificationManager as nm } from "react-notifications";
 import { Link } from "react-router-dom";
 import { getSettingValue } from "../utils/setting.jsx";
+import { dictToURI } from "../utils/url.jsx";
+import { getRequest } from "../utils/request.jsx";
+import Loading from "./box/Loading.jsx";
 
 export default class PageAbout extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.render = this.render.bind(this);
-
 		this.state = {
+			articles: null,
 		};
+	}
+
+	componentDidMount() {
+		this.getArticles();
+	}
+
+	getArticles() {
+		this.setState({
+			articles: null,
+		});
+
+		let params = {
+			type: "SERVICE",
+			per_page: 50,
+			page: 1,
+		};
+
+		params = dictToURI(params);
+
+		getRequest.call(this, "public/get_public_articles?" + params, (data) => {
+			this.setState({
+				articles: data.items,
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
 	}
 
 	// eslint-disable-next-line class-methods-use-this
@@ -31,7 +62,7 @@ export default class PageAbout extends React.Component {
 					</div>
 				</div>
 
-				<div className="row">
+				<div className="row row-spaced">
 					<div className="col-md-12">
 						<img src={"/img/team-huddle-kids-sports.jpg"} alt="team huddle kids sports"/>
 						<p>
@@ -88,14 +119,20 @@ export default class PageAbout extends React.Component {
 							of the cybersecurity ecosystem:
 						</p>
 
-						<ul>
-							<li><a href="https://cyber4africa.org/services/isac/">Information and Best practices Sharing (ISAC)</a></li>
-							<li><a href="https://cyber4africa.org/services/sra/">Strategic and Regulatory Advisory Services (SRA)</a></li>
-							<li><a href="https://cyber4africa.org/services/ccb/">Capacity Building (CCB)</a></li>
-							<li><a href="https://cyber4africa.org/services/rdi/">R&D and Innovation (RDI)</a></li>
-							<li><a href="https://cyber4africa.org/services/csirt/">Incident response (CSIRT)</a></li>
-							<li><a href="https://cyber4africa.org/services/soc/">Security Supervision (SOC)</a></li>
-						</ul>
+						{this.state.articles
+							? <ul>
+								{this.state.articles.map((a) => (
+									<li key={a.id}>
+										<a href={"/service/" + a.handle}>
+											{a.title}
+										</a>
+									</li>
+								))}
+							</ul>
+							: <Loading
+								height={200}
+							/>
+						}
 					</div>
 				</div>
 			</div>
