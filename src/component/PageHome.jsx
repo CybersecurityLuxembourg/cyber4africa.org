@@ -129,7 +129,7 @@ export default class PageHome extends React.Component {
 
 				<div className="row row-spaced">
 					<div className="col-md-12">
-						<h1>Latest events</h1>
+						<h1>Coming events</h1>
 					</div>
 
 					{this.state.events && this.state.events.length === 0
