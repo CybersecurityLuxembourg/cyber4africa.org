@@ -171,7 +171,7 @@ export default class PageJob extends React.Component {
 										<Chip
 											key={t.name}
 											label={t.name}
-											color={"#ffa8b0"}
+											color={"#109E92"}
 											url={"/company/" + t.id}
 										/>
 									))}
@@ -214,7 +214,7 @@ export default class PageJob extends React.Component {
 										<Chip
 											key={t.name}
 											label={t.name}
-											color={"#ffa8b0"}
+											color={"#109E92"}
 											url={"/company/" + t.id}
 										/>
 									))}

@@ -18,6 +18,12 @@
     background-color: #e7f5f4;
 }
 
+@media (max-width: 500px) {
+    .Article .card-body button {
+        display: none;
+    }
+}
+
 .Article .card-img-wrapper {
     min-height: 150px;
     position: relative;

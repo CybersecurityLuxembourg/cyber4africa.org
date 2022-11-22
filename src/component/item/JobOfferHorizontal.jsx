@@ -48,7 +48,7 @@ export default class JobOfferHorizontal extends Component {
 					.map((v) => <Chip
 						key={this.props.companies.filter((d) => d.id === v)[0].name}
 						label={this.props.companies.filter((d) => d.id === v)[0].name}
-						color={"#ffa8b0"}
+						color={"#109E92"}
 						url={"/company/" + v}
 					/>)}
 			</div>;
