@@ -16,12 +16,15 @@ export default class PageEcosystem extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.getPublicCompany = this.getPublicCompany.bind(this);
-		this.onSearch = this.onSearch.bind(this);
-		this.modifyFilters = this.modifyFilters.bind(this);
-
 		this.state = {
 			companies: null,
+			taxonomy: "ECOSYSTEM ROLE",
+			taxonomyValues: [
+				"Consortium member",
+				"Service provider",
+				"Institutional partner",
+				"Academic partner",
+			],
 			filters: {
 				name: getUrlParameter("name"),
 			},
@@ -56,6 +59,29 @@ export default class PageEcosystem extends React.Component {
 		this.getPublicCompany();
 	}
 
+	getTaxonomyValueId(value) {
+		if (this.props.analytics) {
+			const v = this.props.analytics.taxonomy_values
+				.filter((va) => va.category === this.state.taxonomy && va.name === value);
+
+			if (v.length > 0) {
+				return v[0].id;
+			}
+		}
+
+		return null;
+	}
+
+	getEntityIdsFromTaxonomyValue(value) {
+		if (!this.props.analytics) {
+			return [];
+		}
+
+		return this.props.analytics.taxonomy_assignments
+			.filter((a) => a.taxonomy_value_id === this.getTaxonomyValueId(value))
+			.map((a) => a.entity_id);
+	}
+
 	modifyFilters(field, value) {
 		const filters = { ...this.state.filters };
 		filters[field] = value;
@@ -80,46 +106,58 @@ export default class PageEcosystem extends React.Component {
 
 				<CompanySearch
 					filters={this.state.filters}
-					onChange={this.modifyFilters}
-					onSearch={this.onSearch}
+					onChange={(f, v) => this.modifyFilters(f, v)}
+					onSearch={() => this.onSearch()}
 				/>
 
-				<div className="row">
-					<div className="col-md-12">
-						<h1>Companies</h1>
-					</div>
-				</div>
+				{this.state.taxonomyValues.map((v) => (
+					<div className="row" key={v}>
+						<div className="col-md-12">
+							<h1>{v}</h1>
+						</div>
 
-				{this.state.companies !== null && this.state.companies.length > 0
-					&& <SimpleTable
-						numberDisplayed={10}
-						elements={this.state.companies.map((a, i) => [a, i])}
-						buildElement={(a) => (
-							<div className="col-md-6">
-								<Company
-									info={a}
+						{this.state.companies
+							&& this.state.companies
+								.filter((c) => this.getEntityIdsFromTaxonomyValue(v).indexOf(c.id) >= 0)
+								.length > 0
+							&& <div className="col-md-12">
+								<SimpleTable
+									numberDisplayed={10}
+									elements={this.state.companies
+										.filter((c) => this.getEntityIdsFromTaxonomyValue(v).indexOf(c.id) >= 0)
+										.map((a, i) => [a, i])}
+									buildElement={(a) => (
+										<div className="col-md-6">
+											<Company
+												info={a}
+											/>
+										</div>
+									)}
 								/>
 							</div>
-						)}
-					/>
-				}
+						}
 
-				{this.state.companies !== null && this.state.companies.length === 0
-					&& <Message
-						text={"No entity found"}
-						height={300}
-					/>
-				}
+						{this.state.companies !== null
+							&& this.state.companies
+								.filter((c) => this.getEntityIdsFromTaxonomyValue(v).indexOf(c.id) >= 0)
+								.length === 0
+							&& <div className="col-md-12">
+								<Message
+									text={"No entity found"}
+									height={300}
+								/>
+							</div>
+						}
 
-				{this.state.companies === null
-					&& <div className="row">
-						<div className="col-md-12">
-							<Loading
-								height={400}
-							/>
-						</div>
+						{this.state.companies === null
+							&& <div className="col-md-12">
+								<Loading
+									height={200}
+								/>
+							</div>
+						}
 					</div>
-				}
+				))}
 			</div>
 		);
 	}

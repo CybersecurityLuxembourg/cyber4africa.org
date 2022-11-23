@@ -25,6 +25,7 @@ export default class InsideApp extends React.Component {
 
 		this.state = {
 			settings: null,
+			analytics: null,
 		};
 	}
 
@@ -32,6 +33,16 @@ export default class InsideApp extends React.Component {
 		getRequest.call(this, "public/get_public_settings", (data) => {
 			this.setState({
 				settings: data,
+			});
+		}, (response) => {
+			nm.warning(response.statusText);
+		}, (error) => {
+			nm.error(error.message);
+		});
+
+		getRequest.call(this, "public/get_public_analytics", (data) => {
+			this.setState({
+				analytics: data,
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -51,41 +62,41 @@ export default class InsideApp extends React.Component {
 				<div id="InsideApp-content">
 					<Switch>
 						<Route path="/news/:handle" render={(props) => <PageArticle
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 						<Route path="/event/:handle" render={(props) => <PageEvent
 							{...props} settings={this.state.settings}
 						/>}/>
 						<Route path="/service/:handle" render={(props) => <PageService
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 						<Route path="/job/:handle" render={(props) => <PageJob
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 						<Route path="/company/:handle" render={(props) => <PageCompany
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 
 						<Route path="/ecosystem" render={(props) => <PageEcosystem
-							{...props} settings={this.state.settings}
+							{...props} analytics={this.state.analytics}
 						/>}/>
 						<Route path="/news" render={(props) => <PageNews
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 						<Route path="/events" render={(props) => <PageEvents
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 						<Route path="/services" render={(props) => <PageServices
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 						<Route path="/jobs" render={(props) => <PageJobs
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 						<Route path="/search" render={(props) => <PageSearch
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 						<Route path="/about" render={(props) => <PageAbout
-							{...props} settings={this.state.settings}
+							{...props}
 						/>}/>
 
 						<Route path="/" render={(props) => <PageHome {...props} />}/>
