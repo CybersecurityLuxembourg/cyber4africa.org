@@ -42,7 +42,7 @@ export default class PageCompany extends React.Component {
 	}
 
 	getCompanyContent() {
-		getRequest.call(this, "public/get_public_company/" + this.props.match.params.handle, (data) => {
+		getRequest.call(this, "public/get_public_entity/" + this.props.match.params.handle, (data) => {
 			this.setState({
 				company: data,
 			});
