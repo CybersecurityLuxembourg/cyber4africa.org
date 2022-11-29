@@ -61,17 +61,19 @@ export default class Footer extends React.Component {
 						<div className="col-md-6 Footer-contact">
 							<div className="Footer-title">CONTACT</div>
 							<br/>
-							<div>My Company g.i.e.</div>
-							<div>xx, Technology Street</div>
-							<div>1234 Country</div>
-							<br/><br/>
-							<div>(+000) 000 00 00 000</div>
+							<div>VDN - Mermoz Extension</div>
+							<div>Immeuble GraphiPlus</div>
+							<div>Dakar, Sénégal</div>
+							<br/>
+							<div>Email: contact@cyber4africa.org</div>
+							<br/>
+							<div>© 2022 ACRC suàrl All Rights Reserved</div>
 						</div>
 
 						<div className="col-md-2">
 							<div className="Footer-network">
 								<a
-									href="https://twitter.com/"
+									href="https://twitter.com/ACRC_Project"
 									rel="noreferrer"
 									target="_blank"
 									title="Twitter"

@@ -11,9 +11,9 @@ import PageNews from "./PageNews.jsx";
 import PageJobs from "./PageJobs.jsx";
 import PageServices from "./PageServices.jsx";
 import PageService from "./PageService.jsx";
-import PageEvents from "./PageEvents.jsx";
+/* import PageEvents from "./PageEvents.jsx"; */
 import PageArticle from "./PageArticle.jsx";
-import PageEvent from "./PageEvent.jsx";
+/* import PageEvent from "./PageEvent.jsx"; */
 import PageJob from "./PageJob.jsx";
 import PageCompany from "./PageCompany.jsx";
 import PageAbout from "./PageAbout.jsx";
@@ -64,9 +64,9 @@ export default class InsideApp extends React.Component {
 						<Route path="/news/:handle" render={(props) => <PageArticle
 							{...props}
 						/>}/>
-						<Route path="/event/:handle" render={(props) => <PageEvent
+						{/* <Route path="/event/:handle" render={(props) => <PageEvent
 							{...props} settings={this.state.settings}
-						/>}/>
+						/>}/> */}
 						<Route path="/service/:handle" render={(props) => <PageService
 							{...props}
 						/>}/>
@@ -83,9 +83,9 @@ export default class InsideApp extends React.Component {
 						<Route path="/news" render={(props) => <PageNews
 							{...props}
 						/>}/>
-						<Route path="/events" render={(props) => <PageEvents
+						{/* <Route path="/events" render={(props) => <PageEvents
 							{...props}
-						/>}/>
+						/>}/> */}
 						<Route path="/services" render={(props) => <PageServices
 							{...props}
 						/>}/>

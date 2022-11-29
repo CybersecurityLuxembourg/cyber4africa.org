@@ -45,12 +45,12 @@ export default class Menu extends React.Component {
 					<div className="Menu-description">What&apos;s up?</div>
 				</Link>
 			</Nav.Link>
-			<Nav.Link>
+			{/* <Nav.Link>
 				<Link to="/events">
 					<div className="Menu-title">Events</div>
 					<div className="Menu-description">Where to meet?</div>
 				</Link>
-			</Nav.Link>
+			</Nav.Link> */}
 			<Nav.Link>
 				<Link to="/jobs">
 					<div className="Menu-title">Jobs</div>

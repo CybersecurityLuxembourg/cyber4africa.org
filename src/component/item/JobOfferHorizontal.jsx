@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./JobOfferHorizontal.css";
+import dompurify from "dompurify";
 import { Link } from "react-router-dom";
 import Chip from "../form/Chip.jsx";
 import { dateToString } from "../../utils/date.jsx";
@@ -21,6 +22,10 @@ export default class JobOfferHorizontal extends Component {
 				<div className="card-horizontal">
 					<div className="card-body">
 						<h5 className="card-title">{this.props.info.title}</h5>
+
+						<div dangerouslySetInnerHTML={{
+							__html: dompurify.sanitize(this.props.info.abstract),
+						}}/>
 
 						{this.getTagsContent()}
 

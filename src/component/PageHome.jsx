@@ -5,7 +5,7 @@ import Loading from "./box/Loading.jsx";
 import Message from "./box/Message.jsx";
 import { getRequest } from "../utils/request.jsx";
 import Article from "./item/Article.jsx";
-import Event from "./item/Event.jsx";
+/* import Event from "./item/Event.jsx"; */
 import JobOfferHorizontal from "./item/JobOfferHorizontal.jsx";
 import { dictToURI } from "../utils/url.jsx";
 
@@ -127,7 +127,7 @@ export default class PageHome extends React.Component {
 					}
 				</div>
 
-				<div className="row row-spaced">
+				{/* <div className="row row-spaced">
 					<div className="col-md-12">
 						<h1>Coming events</h1>
 					</div>
@@ -158,7 +158,7 @@ export default class PageHome extends React.Component {
 							/>
 						</div>
 					}
-				</div>
+				</div> */}
 
 				<div className="row row-spaced">
 					<div className="col-md-12">

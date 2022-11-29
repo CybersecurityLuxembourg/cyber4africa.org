@@ -114,7 +114,7 @@ export default class PageServices extends React.Component {
 						items={this.state.articles.items}
 						pagination={this.state.articles.pagination}
 						changePage={(page) => this.getArticles(page)}
-						buildElement={(a) => <div className="col-md-12">
+						buildElement={(a) => <div className="col-md-6">
 							<ServiceHorizontal
 								info={a}
 								analytics={this.props.analytics}
