@@ -111,7 +111,8 @@ export default class PageServices extends React.Component {
 				{this.state.articles !== null && this.state.articles.pagination
 					&& this.state.articles.pagination.total > 0
 					&& <DynamicTable
-						items={this.state.articles.items}
+						items={this.state.articles.items.sort((a, b) => this.props.serviceOrder.indexOf(a.name)
+							- this.props.serviceOrder.indexOf(b.name))}
 						pagination={this.state.articles.pagination}
 						changePage={(page) => this.getArticles(page)}
 						buildElement={(a) => <div className="col-md-6">

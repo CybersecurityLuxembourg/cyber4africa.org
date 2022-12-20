@@ -26,6 +26,14 @@ export default class InsideApp extends React.Component {
 		this.state = {
 			settings: null,
 			analytics: null,
+			serviceOrder: [
+				"(ISAC)",
+				"(CCB)",
+				"(CSIRT)",
+				"(SRA)",
+				"(SOC)",
+				"(RDI)",
+			],
 		};
 	}
 
@@ -87,6 +95,7 @@ export default class InsideApp extends React.Component {
 							{...props}
 						/>}/> */}
 						<Route path="/services" render={(props) => <PageServices
+							serviceOrder={this.state.serviceOrder}
 							{...props}
 						/>}/>
 						<Route path="/jobs" render={(props) => <PageJobs
@@ -96,6 +105,7 @@ export default class InsideApp extends React.Component {
 							{...props}
 						/>}/>
 						<Route path="/about" render={(props) => <PageAbout
+							serviceOrder={this.state.serviceOrder}
 							{...props}
 						/>}/>
 

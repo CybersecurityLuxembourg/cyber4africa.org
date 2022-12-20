@@ -121,13 +121,16 @@ export default class PageAbout extends React.Component {
 
 						{this.state.articles
 							? <ul>
-								{this.state.articles.map((a) => (
-									<li key={a.id}>
-										<a href={"/service/" + a.handle}>
-											{a.title}
-										</a>
-									</li>
-								))}
+								{this.state.articles
+									.sort((a, b) => this.props.serviceOrder.indexOf(a.name)
+										- this.props.serviceOrder.indexOf(b.name))
+									.map((a) => (
+										<li key={a.id}>
+											<a href={"/service/" + a.handle}>
+												{a.title}
+											</a>
+										</li>
+									))}
 							</ul>
 							: <Loading
 								height={200}
