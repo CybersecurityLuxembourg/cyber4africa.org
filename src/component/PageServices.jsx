@@ -67,7 +67,7 @@ export default class PageServices extends React.Component {
 
 	getSortedArticles() {
 		const getPos = (title) => {
-			for (let i; i < this.props.serviceOrder.length; i++) {
+			for (let i = 0; i < this.props.serviceOrder.length; i++) {
 				if (title.includes(this.props.serviceOrder[i])) {
 					return i;
 				}
@@ -76,7 +76,7 @@ export default class PageServices extends React.Component {
 			return Number.MAX_SAFE_INTEGER;
 		};
 
-		return this.state.articles.items.sort((a, b) => getPos(a.name) - getPos(b.name));
+		return this.state.articles.items.sort((a, b) => getPos(a.title) - getPos(b.title));
 	}
 
 	changeState(field, value) {
