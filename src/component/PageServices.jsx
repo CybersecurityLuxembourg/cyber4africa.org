@@ -65,6 +65,20 @@ export default class PageServices extends React.Component {
 		this.setState({ filters });
 	}
 
+	getSortedArticles() {
+		const getPos = (title) => {
+			for (let i; i < this.props.serviceOrder.length; i++) {
+				if (title.includes(this.props.serviceOrder[i])) {
+					return i;
+				}
+			}
+
+			return Number.MAX_SAFE_INTEGER;
+		};
+
+		return this.state.articles.items.sort((a, b) => getPos(a.name) - getPos(b.name));
+	}
+
 	changeState(field, value) {
 		this.setState({ [field]: value });
 	}
@@ -111,8 +125,7 @@ export default class PageServices extends React.Component {
 				{this.state.articles !== null && this.state.articles.pagination
 					&& this.state.articles.pagination.total > 0
 					&& <DynamicTable
-						items={this.state.articles.items.sort((a, b) => this.props.serviceOrder.indexOf(a.name)
-							- this.props.serviceOrder.indexOf(b.name))}
+						items={this.getSortedArticles()}
 						pagination={this.state.articles.pagination}
 						changePage={(page) => this.getArticles(page)}
 						buildElement={(a) => <div className="col-md-6">
