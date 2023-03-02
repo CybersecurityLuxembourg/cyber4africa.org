@@ -24,6 +24,7 @@ export default class PageEcosystem extends React.Component {
 				"Service provider",
 				"Institutional partner",
 				"Academic partner",
+				"Professional Association",
 			],
 			filters: {
 				name: getUrlParameter("name"),
