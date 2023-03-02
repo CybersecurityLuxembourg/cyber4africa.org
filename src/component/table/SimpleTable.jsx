@@ -41,7 +41,7 @@ class SimpleTable extends Component {
 		);
 
 		return (
-			<div id={this.state.id} className={"row row-spaced simpleTable "
+			<div id={this.state.id} className={"row simpleTable "
 			+ (this.props.className ? this.props.className : "")}>
 				{this.props.elements.slice().splice(minDisplayed - 1, this.state.numberDisplayed)
 					.map((o) => this.props.buildElement(...o))

@@ -145,7 +145,7 @@ export default class PageEcosystem extends React.Component {
 							&& <div className="col-md-12">
 								<Message
 									text={"No entity found"}
-									height={300}
+									height={200}
 								/>
 							</div>
 						}
