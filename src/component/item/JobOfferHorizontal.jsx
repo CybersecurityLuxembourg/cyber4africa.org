@@ -23,10 +23,6 @@ export default class JobOfferHorizontal extends Component {
 					<div className="card-body">
 						<h5 className="card-title">{this.props.info.title}</h5>
 
-						<div dangerouslySetInnerHTML={{
-							__html: dompurify.sanitize(this.props.info.abstract),
-						}}/>
-
 						{this.getTagsContent()}
 
 						<button
@@ -40,12 +36,21 @@ export default class JobOfferHorizontal extends Component {
 						{dateToString(this.props.info.publication_date, "DD MMM YYYY")}
 					</div>
 				</div>
+				{this.props.info.abstract !== null && this.props.info.abstract.length > 0
+					&& <div className="card-text">
+						<div dangerouslySetInnerHTML={{
+							__html:
+							dompurify.sanitize(this.props.info.abstract),
+						}} />
+					</div>
+				}
 			</div>
 		);
 	}
 
 	getTagsContent() {
 		if (this.props.info.entity_tags
+			&& this.props.info.entity_tags.length > 0
 			&& this.props.companies) {
 			return <div className="card-tags">
 				{this.props.info.entity_tags
