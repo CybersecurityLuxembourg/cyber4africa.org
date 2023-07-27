@@ -21,7 +21,7 @@ export default class PageServices extends React.Component {
 			newsCompanies: null,
 			filters: {
 				type: "SERVICE",
-				title: null,
+				title: "",
 				include_tags: "true",
 				per_page: 20,
 				page: getUrlParameter("page") !== null ? parseInt(getUrlParameter("page"), 10) : 1,
@@ -104,7 +104,7 @@ export default class PageServices extends React.Component {
 						<ServiceSearch
 							analytics={this.props.analytics}
 							filters={this.state.filters}
-							onChange={() => this.modifyFilters()}
+							onChange={(f, v) => this.modifyFilters(f, v)}
 							onSearch={() => this.getArticles()}
 						/>
 					</div>

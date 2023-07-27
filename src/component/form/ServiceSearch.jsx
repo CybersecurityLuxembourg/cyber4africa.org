@@ -17,7 +17,7 @@ export default class ServiceSearch extends React.Component {
 					<FormLine
 						label={"Title"}
 						value={this.props.filters.title === undefined
-							? [] : this.props.filters.title}
+							? "" : this.props.filters.title}
 						onChange={(v) => this.props.onChange("title", v)}
 					/>
 				</div>

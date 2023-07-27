@@ -124,7 +124,7 @@ export default class PageNews extends React.Component {
 						<ArticleSearch
 							analytics={this.props.analytics}
 							filters={this.state.filters}
-							onChange={() => this.modifyFilters()}
+							onChange={(f, v) => this.modifyFilters(f, v)}
 							onSearch={() => this.getArticles()}
 						/>
 					</div>
