@@ -63,6 +63,12 @@ export default class Menu extends React.Component {
 					<div className="Menu-description">Cybersecurity solutions</div>
 				</Link>
 			</Nav.Link>
+			<Nav.Link>
+				<Link to="/tools">
+					<div className="Menu-title">Tools</div>
+					<div className="Menu-description">Get well equipped</div>
+				</Link>
+			</Nav.Link>
 		</Nav>;
 	}
 

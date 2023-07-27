@@ -9,12 +9,14 @@ import PageHome from "./PageHome.jsx";
 import PageEcosystem from "./PageEcosystem.jsx";
 import PageNews from "./PageNews.jsx";
 import PageJobs from "./PageJobs.jsx";
+import PageTools from "./PageTools.jsx";
 import PageServices from "./PageServices.jsx";
 import PageService from "./PageService.jsx";
 /* import PageEvents from "./PageEvents.jsx"; */
 import PageArticle from "./PageArticle.jsx";
 /* import PageEvent from "./PageEvent.jsx"; */
 import PageJob from "./PageJob.jsx";
+import PageTool from "./PageTool.jsx";
 import PageCompany from "./PageCompany.jsx";
 import PageAbout from "./PageAbout.jsx";
 import PageSearch from "./PageSearch.jsx";
@@ -81,6 +83,9 @@ export default class InsideApp extends React.Component {
 						<Route path="/job/:handle" render={(props) => <PageJob
 							{...props}
 						/>}/>
+						<Route path="/tool/:handle" render={(props) => <PageTool
+							{...props}
+						/>}/>
 						<Route path="/company/:handle" render={(props) => <PageCompany
 							{...props}
 						/>}/>
@@ -99,6 +104,10 @@ export default class InsideApp extends React.Component {
 							{...props}
 						/>}/>
 						<Route path="/jobs" render={(props) => <PageJobs
+							{...props}
+						/>}/>
+						<Route path="/tools" render={(props) => <PageTools
+							analytics={this.state.analytics}
 							{...props}
 						/>}/>
 						<Route path="/search" render={(props) => <PageSearch
