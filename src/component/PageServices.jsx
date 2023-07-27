@@ -102,7 +102,6 @@ export default class PageServices extends React.Component {
 				<div className="row row-spaced">
 					<div className="col-md-12">
 						<ServiceSearch
-							analytics={this.props.analytics}
 							filters={this.state.filters}
 							onChange={(f, v) => this.modifyFilters(f, v)}
 							onSearch={() => this.getArticles()}
