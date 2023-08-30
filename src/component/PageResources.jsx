@@ -1,26 +1,28 @@
 import React from "react";
-import "./PageTools.css";
+import "./PageResources.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Link } from "react-router-dom";
 import { NotificationManager as nm } from "react-notifications";
 import { getRequest } from "../utils/request.jsx";
 import Loading from "./box/Loading.jsx";
 import Message from "./box/Message.jsx";
-import ToolHorizontal from "./item/ToolHorizontal.jsx";
+import ResourceHorizontal from "./item/ResourceHorizontal.jsx";
 import SimpleTable from "./table/SimpleTable.jsx";
 import ServiceSearch from "./form/ServiceSearch.jsx";
 import { getUrlParameter, dictToURI } from "../utils/url.jsx";
 import { getSettingValue } from "../utils/setting.jsx";
 
-export default class PageTools extends React.Component {
+export default class PageResources extends React.Component {
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			tools: null,
-			taxonomy: "TOOL CATEGORY",
+			resources: null,
+			taxonomy: "RESOURCE CATEGORY",
 			filters: {
 				title: getUrlParameter("title"),
+				type: "RESOURCE",
+				include_tags: true,
 			},
 		};
 	}
@@ -37,7 +39,7 @@ export default class PageTools extends React.Component {
 
 		getRequest.call(this, "public/get_public_articles?" + dictToURI(params), (data) => {
 			this.setState({
-				tools: data,
+				resources: data,
 			});
 		}, (response) => {
 			nm.warning(response.statusText);
@@ -53,29 +55,6 @@ export default class PageTools extends React.Component {
 		this.getTools();
 	}
 
-	getTaxonomyValueId(value) {
-		if (this.props.analytics) {
-			const v = this.props.analytics.taxonomy_values
-				.filter((va) => va.category === this.state.taxonomy && va.name === value);
-
-			if (v.length > 0) {
-				return v[0].id;
-			}
-		}
-
-		return null;
-	}
-
-	getArticleIdsFromTaxonomyValue(value) {
-		if (!this.props.analytics) {
-			return [];
-		}
-
-		return this.props.analytics.taxonomy_assignments
-			.filter((a) => a.taxonomy_value_id === this.getTaxonomyValueId(value))
-			.map((a) => a.article_id);
-	}
-
 	modifyFilters(field, value) {
 		const filters = { ...this.state.filters };
 		filters[field] = value;
@@ -84,7 +63,7 @@ export default class PageTools extends React.Component {
 
 	render() {
 		return (
-			<div className={"PageTools page max-sized-page"}>
+			<div className={"PageResources page max-sized-page"}>
 				<div className="row">
 					<div className="col-md-12">
 						<Breadcrumb>
@@ -93,7 +72,7 @@ export default class PageTools extends React.Component {
 									<Link to="/">{getSettingValue(this.props.settings, "PROJECT_NAME")}</Link>
 								</Breadcrumb.Item>
 							}
-							<Breadcrumb.Item><Link to="/ecosystem">Ecosystem</Link></Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/resources">Resources</Link></Breadcrumb.Item>
 						</Breadcrumb>
 					</div>
 				</div>
@@ -113,19 +92,19 @@ export default class PageTools extends React.Component {
 									<h1>{v.name}</h1>
 								</div>
 
-								{this.state.tools
-									&& this.state.tools.items
-										.filter((c) => this.getArticleIdsFromTaxonomyValue(v).indexOf(c.id) >= 0)
+								{this.state.resources
+									&& this.state.resources.items
+										.filter((c) => c.taxonomy_tags.indexOf(v.id) >= 0)
 										.length > 0
 									&& <div className="col-md-12">
 										<SimpleTable
 											numberDisplayed={10}
-											elements={this.state.tools.items
-												.filter((c) => this.getArticleIdsFromTaxonomyValue(v).indexOf(c.id) >= 0)
+											elements={this.state.resources.items
+												.filter((c) => c.taxonomy_tags.indexOf(v.id) >= 0)
 												.map((a, i) => [a, i])}
 											buildElement={(a) => (
 												<div className="col-md-6">
-													<ToolHorizontal
+													<ResourceHorizontal
 														info={a}
 													/>
 												</div>
@@ -134,19 +113,19 @@ export default class PageTools extends React.Component {
 									</div>
 								}
 
-								{this.state.tools
-									&& this.state.tools.items
-										.filter((c) => this.getArticleIdsFromTaxonomyValue(v).indexOf(c.id) >= 0)
+								{this.state.resources
+									&& this.state.resources.items
+										.filter((c) => c.taxonomy_tags.indexOf(v.id) >= 0)
 										.length === 0
 									&& <div className="col-md-12">
 										<Message
-											text={"No tool found"}
+											text={"No resource found"}
 											height={200}
 										/>
 									</div>
 								}
 
-								{!this.state.tools
+								{!this.state.resources
 									&& <div className="col-md-12">
 										<Loading
 											height={200}

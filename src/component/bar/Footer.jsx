@@ -40,7 +40,7 @@ export default class Footer extends React.Component {
 										<Link to="/services">Services</Link>
 									</div>
 									<div>
-										<Link to="/tools">Tools</Link>
+										<Link to="/resources">Resources</Link>
 									</div>
 									<br/>
 									<div>

@@ -9,7 +9,7 @@ import PageHome from "./PageHome.jsx";
 import PageEcosystem from "./PageEcosystem.jsx";
 import PageNews from "./PageNews.jsx";
 import PageJobs from "./PageJobs.jsx";
-import PageTools from "./PageTools.jsx";
+import PageResources from "./PageResources.jsx";
 import PageServices from "./PageServices.jsx";
 import PageService from "./PageService.jsx";
 /* import PageEvents from "./PageEvents.jsx"; */
@@ -106,7 +106,7 @@ export default class InsideApp extends React.Component {
 						<Route path="/jobs" render={(props) => <PageJobs
 							{...props}
 						/>}/>
-						<Route path="/tools" render={(props) => <PageTools
+						<Route path="/resources" render={(props) => <PageResources
 							analytics={this.state.analytics}
 							{...props}
 						/>}/>

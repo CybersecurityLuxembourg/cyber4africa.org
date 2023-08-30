@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import "./ToolHorizontal.css";
+import "./ResourceHorizontal.css";
 import dompurify from "dompurify";
 import { Link } from "react-router-dom";
 import NoImage from "../box/NoImage.jsx";
 import { getApiURL } from "../../utils/env.jsx";
 
-export default class ToolHorizontal extends Component {
+export default class ResourceHorizontal extends Component {
 	constructor(props) {
 		super(props);
 
@@ -38,7 +38,7 @@ export default class ToolHorizontal extends Component {
 
 	getBoxContent() {
 		return (
-			<div className="ToolHorizontal card">
+			<div className="ResourceHorizontal card">
 				<div className="card-horizontal">
 					<div className="img-square-wrapper">
 						{this.getImage()
@@ -83,10 +83,10 @@ export default class ToolHorizontal extends Component {
 				href={this.props.info.link}
 				target={"_blank"}
 				rel="noreferrer"
-				className="ToolHorizontal-link">
+				className="ResourceHorizontal-link">
 				{this.getBoxContent()}
 			</a>
-			: <Link to={"/tool/" + this.props.info.handle} className="ToolHorizontal-link">
+			: <Link to={"/tool/" + this.props.info.handle} className="ResourceHorizontal-link">
 				{this.getBoxContent()}
 			</Link>;
 	}
