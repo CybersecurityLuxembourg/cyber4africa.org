@@ -1,5 +1,5 @@
 import React from "react";
-import "./PageTool.css";
+import "./PageResource.css";
 import dompurify from "dompurify";
 import { NotificationManager as nm } from "react-notifications";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
@@ -10,7 +10,7 @@ import Loading from "./box/Loading.jsx";
 import { getContentFromBlock } from "../utils/article.jsx";
 import { getSettingValue } from "../utils/setting.jsx";
 
-export default class PageTool extends React.Component {
+export default class PageResource extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -47,7 +47,7 @@ export default class PageTool extends React.Component {
 		let positionToTreat = 0;
 
 		return (
-			<div className={"PageTool page max-sized-page"}>
+			<div className={"PageResource page max-sized-page"}>
 				<div className="row">
 					<div className="col-md-12">
 						<Breadcrumb>
@@ -56,9 +56,9 @@ export default class PageTool extends React.Component {
 									<Link to="/">{getSettingValue(this.props.settings, "PROJECT_NAME")}</Link>
 								</Breadcrumb.Item>
 							}
-							<Breadcrumb.Item><Link to="/services">Services</Link></Breadcrumb.Item>
+							<Breadcrumb.Item><Link to="/resources">Resources</Link></Breadcrumb.Item>
 							{this.state.article !== null
-								? <Breadcrumb.Item><Link to={"/service/" + this.props.match.params.handle}>{this.state.article.title}</Link></Breadcrumb.Item>
+								? <Breadcrumb.Item><Link to={"/resource/" + this.props.match.params.handle}>{this.state.article.title}</Link></Breadcrumb.Item>
 								: ""}
 						</Breadcrumb>
 					</div>
@@ -68,7 +68,7 @@ export default class PageTool extends React.Component {
 					? <div className="row row-spaced">
 						<div className="col-md-12">
 							<article>
-								<div className='PageTool-content-cover'>
+								<div className='PageResource-content-cover'>
 									{this.state.article.image !== null
 										? <img src={getApiURL() + "public/get_public_image/" + this.state.article.image}/>
 										: ""}
@@ -80,7 +80,7 @@ export default class PageTool extends React.Component {
 
 								{this.state.article.abstract !== null
 									&& <div
-										className="PageTool-abstract"
+										className="PageResource-abstract"
 										dangerouslySetInnerHTML={{
 											__html:
 											dompurify.sanitize(this.state.article.abstract),

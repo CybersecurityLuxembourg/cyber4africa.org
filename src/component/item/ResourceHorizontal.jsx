@@ -86,7 +86,7 @@ export default class ResourceHorizontal extends Component {
 				className="ResourceHorizontal-link">
 				{this.getBoxContent()}
 			</a>
-			: <Link to={"/tool/" + this.props.info.handle} className="ResourceHorizontal-link">
+			: <Link to={"/resource/" + this.props.info.handle} className="ResourceHorizontal-link">
 				{this.getBoxContent()}
 			</Link>;
 	}

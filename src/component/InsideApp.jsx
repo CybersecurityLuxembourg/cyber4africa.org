@@ -16,7 +16,7 @@ import PageService from "./PageService.jsx";
 import PageArticle from "./PageArticle.jsx";
 /* import PageEvent from "./PageEvent.jsx"; */
 import PageJob from "./PageJob.jsx";
-import PageTool from "./PageTool.jsx";
+import PageResource from "./PageResource.jsx";
 import PageCompany from "./PageCompany.jsx";
 import PageAbout from "./PageAbout.jsx";
 import PageSearch from "./PageSearch.jsx";
@@ -83,7 +83,7 @@ export default class InsideApp extends React.Component {
 						<Route path="/job/:handle" render={(props) => <PageJob
 							{...props}
 						/>}/>
-						<Route path="/tool/:handle" render={(props) => <PageTool
+						<Route path="/resource/:handle" render={(props) => <PageResource
 							{...props}
 						/>}/>
 						<Route path="/company/:handle" render={(props) => <PageCompany

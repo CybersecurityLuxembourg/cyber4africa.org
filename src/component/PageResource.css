@@ -1,9 +1,9 @@
 
-.PageTool article {
+.PageResource article {
 	margin-bottom: 20px;
 }
 
-.PageTool article .PageTool-content-cover {
+.PageResource article .PageResource-content-cover {
 	position: relative;
 	margin: auto;
 	background: repeating-linear-gradient(
@@ -17,38 +17,38 @@
 	min-height: 50px;
 }
 
-.PageTool article .PageTool-content-cover img {
+.PageResource article .PageResource-content-cover img {
 	max-width: 100%;
 	min-height: 50px;
 	max-height: 300px;
 }
 
-.PageTool article .content-media {
+.PageResource article .content-media {
 	margin: 15px auto;
 	text-align: center;
 	display: flex;
   	justify-content: center;
 }
 
-.PageTool article .content-media img {
+.PageResource article .content-media img {
 	max-width: 100%;
 	max-height: 300px;
 }
 
-.PageTool article .content-media iframe {
+.PageResource article .content-media iframe {
 	max-width: 100%;
 }
 
-.PageTool article .content-media p {
+.PageResource article .content-media p {
 	margin: 0 !important;
 }
 
-.PageTool-related-article {
+.PageResource-related-article {
 	background-color: #f8f9fa;
 	padding-top: 0px !important;
 }
 
-.PageTool-publication-date {
+.PageResource-publication-date {
 	position: absolute;
 	right: 30px;
 	bottom: 0px;
@@ -61,19 +61,19 @@
     line-height: 1.2;
 }
 
-.PageTool-tags {
+.PageResource-tags {
 	padding: 30px 10px 5px 10px;
 }
 
 /* Collapsible */ 
 
-.PageTool .Collapsible {
+.PageResource .Collapsible {
 	margin: 30px 0px 0px 0px !important;
 	border-top: solid 0px !important;
     border-bottom: solid 0px !important;
 }
 
-.PageTool .Collapsible__trigger p {
+.PageResource .Collapsible__trigger p {
 	position: relative;
 	padding: 8px 70px 8px 20px;
 	font-style: italic;
@@ -81,12 +81,12 @@
 	margin-bottom: 0px;
 }
 
-.PageTool .Collapsible .is-closed:after {
+.PageResource .Collapsible .is-closed:after {
     top: 45px !important;
     right: 10px;
 }
 
-.PageTool .Collapsible .is-open:after {
+.PageResource .Collapsible .is-open:after {
     top: 45px !important;
     right: 10px;
 }
